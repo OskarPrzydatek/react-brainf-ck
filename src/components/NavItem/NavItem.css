@@ -1,0 +1,9 @@
+.nav-item {
+  width: 50%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+}

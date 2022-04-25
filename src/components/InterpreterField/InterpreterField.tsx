@@ -1,4 +1,4 @@
-import "./CompilerField.css";
+import "./InterpreterField.css";
 
 import { UseFormRegisterReturn } from "react-hook-form";
 

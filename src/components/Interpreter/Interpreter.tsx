@@ -1,11 +1,12 @@
-import "./Compiler.css";
+import "./Interpreter.css";
 
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { compiler } from "../../constants/compiler";
+import { CompilerContent } from "../../constants/compiler";
+import { syntaxRegexp } from "../../constants/syntaxRegexp";
 
-import CompilerField from "../CompilerField/CompilerField";
+import InterpreterField from "../InterpreterField/InterpreterField";
 import Button from "../Button/Button";
 
 type CodeInput = {
@@ -27,24 +28,24 @@ export default function Compiler() {
   return (
     <form onSubmit={handleSubmit(compile)} className="compiler">
       <div className="compiler__io">
-        <CompilerField
-          label={compiler.labels.input}
+        <InterpreterField
+          label={CompilerContent.INPUT_LABEL}
           register={register("bfCode", {
             required: true,
             pattern: {
-              value: compiler.regexp,
-              message: compiler.syntaxErrorMessage,
+              value: syntaxRegexp,
+              message: CompilerContent.SYNTAX_ERROR,
             },
           })}
         />
-        <CompilerField
-          label={compiler.labels.output}
+        <InterpreterField
+          label={CompilerContent.OUTPUT_LABEL}
           readOnly={true}
           value={input}
           error={errors.bfCode}
         />
       </div>
-      <Button label={compiler.labels.button} />
+      <Button label={CompilerContent.BUTTON_LABEL} />
     </form>
   );
 }

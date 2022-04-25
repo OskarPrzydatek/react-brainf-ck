@@ -1,9 +1,15 @@
 .nav-bar {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-bar__logo {
+  font-size: 3.5rem;
 }
 
 .nav-bar__items {
-  width: 100%;
+  width: 60%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }

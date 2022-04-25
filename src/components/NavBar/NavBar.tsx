@@ -1,6 +1,6 @@
 import "./NavBar.css";
 
-import { AppRoutes } from "../../routes";
+import { AppRoutes } from "../../constants/routes";
 
 import NavItem from "../NavItem/NavItem";
 

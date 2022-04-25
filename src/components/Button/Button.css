@@ -1,0 +1,16 @@
+.button {
+  margin: 2%;
+  padding: 2%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  background: inherit;
+  border: 3px solid black;
+  font-family: inherit;
+  font-size: 2rem;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

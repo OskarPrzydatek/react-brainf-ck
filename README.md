@@ -1,7 +1,7 @@
 # BIU Brain*uck 
 
 ## 1. Założenia
-- [ ] Program na wejściu pobiera od użytkownika kod źródłowy w języku Brainf*ck.
+- [x] Program na wejściu pobiera od użytkownika kod źródłowy w języku Brainf*ck.
 - [ ] Program powinien wykonać instrukcje zawarte w kodzie źródłowym. 
 - [ ] Instrukcja pobierająca znak powinna spowodować przerwanie wykonania i poproszenie o wpisanie znaku przez użytkownika w formularzu z polem tekstowym.
 - [ ] Użytkownik może podać w polu więcej znaków "z wyprzedzeniem". Instrukcja wyświetlająca znak powinna spowodować jego pokazanie w przeglądarce. Kolejne znaki powinny być pokazywane obok siebie.
@@ -12,7 +12,7 @@
     - [ ] Podgląd fragmentu kodu źródłowego, na którym przerwano wykonanie – instrukcja * powodująca obecne przerwanie powinna być podświetlona na czerwono, a podgląd powinien obejmować również 15 znaków przed i 15 znaków za tym znakiem.
     - [ ] Link do kliknięcia, który powoduje wznowienie wykonywania kodu.
 
-## Routing Aplikacji
+## 2. Routing Aplikacji
 - "/" - Strona główna z kompilatorem
 - "/about" - Strona o języku Brainf*ck
 

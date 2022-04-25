@@ -13,7 +13,6 @@ export default function PageLayout({
 }: PageLayoutProps): React.ReactElement {
   return (
     <section className="page-layout">
-      <h1 className="page-layout__logo">Brainf*ck</h1>
       <NavBar />
       <h2 className="page-layout__header">{title}</h2>
       <main className="page-layout__content">{children}</main>

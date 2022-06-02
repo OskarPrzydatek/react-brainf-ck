@@ -1,0 +1,22 @@
+.interpreter-value-input {
+  display: flex;
+}
+
+.interpreter-value-input > * {
+  margin-bottom: 5%;
+}
+
+.interpreter-value-input > *:first-child {
+  margin-right: 3%;
+}
+
+.interpreter-value-input__inputfield {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid black;
+  font: inherit;
+}
+
+.interpreter-value-input__inputfield:focus-visible {
+  outline: none;
+}

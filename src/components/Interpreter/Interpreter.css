@@ -1,12 +1,13 @@
-.compiler {
+.interpreter {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.compiler__io {
+.interpreter__io {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  column-gap: 10%;
 }

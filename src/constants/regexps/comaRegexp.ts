@@ -1,0 +1,1 @@
+export const ComaRegexp = new RegExp(/,/g)

@@ -1,0 +1,34 @@
+.interpreter-output-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.interpreter-output-field__header {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.interpreter-output-field__output {
+  padding: 2%;
+  width: calc(100%);
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  font-size: 24px;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+}
+
+.interpreter-output-field__output::-webkit-scrollbar {
+  width: 14px;
+  cursor: pointer;
+}
+
+.interpreter-output-field__output::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 1px solid white;
+}

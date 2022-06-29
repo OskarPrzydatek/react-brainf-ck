@@ -1,51 +1,71 @@
+import React from "react";
+
 import "./Interpreter.css";
 
-import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { CompilerContent } from "../../constants/compiler";
-import { syntaxRegexp } from "../../constants/syntaxRegexp";
+import { ComaRegexp } from "../../constants/regexps/comaRegexp";
+import { SyntaxRegexp } from "../../constants/regexps/syntaxRegexp";
+import { InterpreterLabels } from "../../constants/interpreter/interpreterLabels";
+import { InterpreterErrors } from "../../constants/interpreter/interpreterErrors";
 
-import InterpreterField from "../InterpreterField/InterpreterField";
+import useBrainfuckInterpreter from "../../hooks/useBrainfuckInterpreter";
+
+import InterpreterInputField from "../InterpreterInputField/InterpreterInputField";
+import InterpreterOutputField from "../InterpreterOutputField/InterpreterOutputField";
 import Button from "../Button/Button";
 
 type CodeInput = {
   bfCode: string;
 };
 
-export default function Compiler() {
+export default function Interpreter() {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm<CodeInput>();
 
-  const [input, setInput] = React.useState<string>();
+  const [program, setProgram] = React.useState<string>("");
+  const [inputVal, setInputVal] = React.useState<string>("");
+  const [inputsNum, setInputsNum] = React.useState<number>(0);
 
-  const compile: SubmitHandler<CodeInput> = (data: CodeInput) =>
-    setInput(data.bfCode);
+  const output = useBrainfuckInterpreter(program, inputVal);
+
+  const compile: SubmitHandler<CodeInput> = ({ bfCode }: CodeInput) => {
+    setProgram(bfCode.trim());
+  };
+
+  const handleInputs = (event: any) => {
+    const programInputs = event.target.value.match(ComaRegexp);
+
+    programInputs !== null
+      ? setInputsNum(programInputs.length)
+      : setInputsNum(0);
+  };
 
   return (
-    <form onSubmit={handleSubmit(compile)} className="compiler">
-      <div className="compiler__io">
-        <InterpreterField
-          label={CompilerContent.INPUT_LABEL}
+    <form onSubmit={handleSubmit(compile)} className="interpreter">
+      <div className="interpreter__io">
+        <InterpreterInputField
           register={register("bfCode", {
             required: true,
             pattern: {
-              value: syntaxRegexp,
-              message: CompilerContent.SYNTAX_ERROR,
+              value: SyntaxRegexp,
+              message: InterpreterErrors.SYNTAX_ERROR,
             },
           })}
+          onChange={handleInputs}
         />
-        <InterpreterField
-          label={CompilerContent.OUTPUT_LABEL}
-          readOnly={true}
-          value={input}
+        <InterpreterOutputField
+          inputsNum={inputsNum}
+          output={output}
           error={errors.bfCode}
+          inputVal={inputVal}
+          setInputVal={setInputVal}
         />
       </div>
-      <Button label={CompilerContent.BUTTON_LABEL} />
+      <Button label={InterpreterLabels.BUTTON_LABEL} />
     </form>
   );
 }

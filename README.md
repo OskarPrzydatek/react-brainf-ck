@@ -2,7 +2,7 @@
 
 ## 1. Założenia
 - [x] Program na wejściu pobiera od użytkownika kod źródłowy w języku Brainf*ck.
-- [ ] Program powinien wykonać instrukcje zawarte w kodzie źródłowym. 
+- [x] Program powinien wykonać instrukcje zawarte w kodzie źródłowym. 
 - [x] Instrukcja pobierająca znak powinna spowodować przerwanie wykonania i poproszenie o wpisanie znaku przez użytkownika w formularzu z polem tekstowym.
 - [x] Użytkownik może podać w polu więcej znaków "z wyprzedzeniem". Instrukcja wyświetlająca znak powinna spowodować jego pokazanie w przeglądarce. Kolejne znaki powinny być pokazywane obok siebie.
 - [x] Po zakończeniu wykonywania programu lub w momencie, gdy pokazany jest formularz z prośbą o podanie znaku przez użytkownika.

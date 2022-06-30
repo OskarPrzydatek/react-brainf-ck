@@ -12,10 +12,10 @@ export default function PageLayout({
   title,
 }: PageLayoutProps): React.ReactElement {
   return (
-    <section className="page-layout">
+    <main className="page-layout">
       <NavBar />
       <h2 className="page-layout__header">{title}</h2>
       <main className="page-layout__content">{children}</main>
-    </section>
+    </main>
   );
 }

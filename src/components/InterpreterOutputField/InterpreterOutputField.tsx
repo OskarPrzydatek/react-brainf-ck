@@ -1,9 +1,12 @@
+import React from "react";
+
 import "./InterpreterOutputField.css";
 
 import { InterpreterLabels } from "../../constants/interpreter/interpreterLabels";
+import { OutputView } from "../../constants/interpreter/outputView";
 
-import InterpreterErrorMessage from "../InterpreterErrorMessage/InterpreterErrorMessage";
-import InterpreterValueInput from "../InterpreterValueInput/InterpreterValueInput";
+import InterpreterOutputView from "./views/InterpreterOutputView";
+import InterpreterDebugView from "./views/InterpreterDebugView";
 
 type InterpreterOutputFieldProps = {
   inputsNum: number;
@@ -11,6 +14,8 @@ type InterpreterOutputFieldProps = {
   error?: any;
   inputVal: string;
   setInputVal: React.Dispatch<React.SetStateAction<string>>;
+  debug: Array<number>;
+  debugCurrentPointer: number;
 };
 
 export default function InterpreterOutputField({
@@ -19,9 +24,13 @@ export default function InterpreterOutputField({
   error,
   inputVal,
   setInputVal,
+  debug,
+  debugCurrentPointer,
 }: InterpreterOutputFieldProps) {
-  
-  // TODO: Do it better and separate
+  const [outputView, setOutputView] = React.useState<OutputView>(
+    OutputView.OUTPUT
+  );
+
   const handleInputVal = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number
@@ -43,29 +52,42 @@ export default function InterpreterOutputField({
   };
 
   return (
-    <article className="interpreter-output-field">
-      <h2 className="interpreter-output-field__header">
-        {InterpreterLabels.OUTPUT_LABEL}
-      </h2>
-      <div className="interpreter-output-field__output">
-        {error ? (
-          <InterpreterErrorMessage message={error.message} />
-        ) : (
-          <>
-            {inputsNum > 0 &&
-              Array.from({ length: inputsNum }).map((_, index) => (
-                <InterpreterValueInput
-                  key={`input-nr-${index}`}
-                  index={index}
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                    handleInputVal(event, index)
-                  }
-                />
-              ))}
-            <span>{output}</span>
-          </>
-        )}
+    <div className="interpreter-output-field">
+      <div className="interpreter-output-field__output-button-wrapper">
+        <span
+          className="interpreter-output-field__output-button-wrapper--button"
+          onClick={() => setOutputView(OutputView.OUTPUT)}
+        >
+          {InterpreterLabels.OUTPUT_LABEL}
+        </span>
+        <span
+          className="interpreter-output-field__output-button-wrapper--button"
+          onClick={() => setOutputView(OutputView.DEBUG)}
+        >
+          {InterpreterLabels.DEBUGER_LABEL}
+        </span>
       </div>
-    </article>
+
+      <div className="interpreter-output-field__output">
+        {
+          {
+            OUTPUT: (
+              <InterpreterOutputView
+                error={error}
+                inputsNum={inputsNum}
+                output={output}
+                handleInputVal={handleInputVal}
+              />
+            ),
+            DEBUG: (
+              <InterpreterDebugView
+                debug={debug}
+                debugCurrentPointer={debugCurrentPointer}
+              />
+            ),
+          }[outputView]
+        }
+      </div>
+    </div>
   );
 }

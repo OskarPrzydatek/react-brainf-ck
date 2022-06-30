@@ -7,4 +7,5 @@ export enum BFSigns {
   COMA = ",",
   BRACKET_OPEN = "[",
   BRACKET_CLOSE = "]",
+  STAR = "*"
 }

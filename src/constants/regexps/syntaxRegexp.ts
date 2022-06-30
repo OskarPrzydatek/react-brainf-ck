@@ -1,1 +1,1 @@
-export const SyntaxRegexp = new RegExp(/[\\>\\<\\[\]\\+\-\\.\\,]$/);
+export const SyntaxRegexp = new RegExp(/[\\>\\<\\[\]\\+\-\\.\\,\\*]$/);

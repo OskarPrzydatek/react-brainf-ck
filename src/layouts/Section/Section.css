@@ -1,0 +1,21 @@
+.section {
+  margin: 5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section__header {
+  font-size: 2rem;
+  margin-bottom: 5%;
+  text-decoration: underline;
+}
+
+.section__paragraphs-list {
+  text-align: justify;
+  font-size: 1.3rem;
+}
+
+.section__paragraphs-list > * {
+  margin-bottom: 10%;
+}

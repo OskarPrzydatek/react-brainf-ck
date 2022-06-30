@@ -1,0 +1,24 @@
+.pharagraph-list-item__subtitle {
+  margin-left: 5%;
+  font-size: 1.8rem;
+}
+
+.pharagraph-list-item__code-wrapper {
+  margin: 5% 0;
+  padding: 3%;
+  border: 2px solid black;
+  background: snow;
+}
+
+.pharagraph-list-item__code {
+  font-size: 1.4rem;
+}
+
+.pharagraph-list-item__link-to {
+  color: blue;
+  text-decoration: underline;
+}
+
+.pharagraph-list-item__link-to:visited {
+  color: purple;
+}

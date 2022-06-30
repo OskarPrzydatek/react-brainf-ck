@@ -6,9 +6,19 @@
   align-items: center;
 }
 
-.interpreter-output-field__header {
-  font-weight: 400;
+.interpreter-output-field__output-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.interpreter-output-field__output-button-wrapper--button {
   font-size: 2rem;
+  cursor: pointer;
+}
+
+.interpreter-output-field__output-button-wrapper--button:hover {
+  text-decoration: underline;
 }
 
 .interpreter-output-field__output {

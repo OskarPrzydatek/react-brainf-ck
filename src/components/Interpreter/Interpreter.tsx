@@ -30,7 +30,10 @@ export default function Interpreter() {
   const [inputVal, setInputVal] = React.useState<string>("");
   const [inputsNum, setInputsNum] = React.useState<number>(0);
 
-  const output = useBrainfuckInterpreter(program, inputVal);
+  const [output, debug, debugCurrentPointer] = useBrainfuckInterpreter(
+    program,
+    inputVal
+  );
 
   const compile: SubmitHandler<CodeInput> = ({ bfCode }: CodeInput) => {
     setProgram(bfCode.trim());
@@ -59,10 +62,12 @@ export default function Interpreter() {
         />
         <InterpreterOutputField
           inputsNum={inputsNum}
-          output={output}
+          output={output as string}
           error={errors.bfCode}
           inputVal={inputVal}
           setInputVal={setInputVal}
+          debug={debug as Array<number>}
+          debugCurrentPointer={debugCurrentPointer as number}
         />
       </div>
       <Button label={InterpreterLabels.BUTTON_LABEL} />
